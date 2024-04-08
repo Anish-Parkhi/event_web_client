@@ -1,0 +1,31 @@
+.navbarMainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2;
+  justify-content: space-between;
+}
+.navbarInnerListContainer {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 4rem;
+  font-size: 1.2rem;
+}
+.bookEventContiner {
+  margin-right: 4rem;
+}
+.navbarInnerListContainer li {
+  cursor: pointer;
+}
+.navbarInnerListContainer li:hover {
+    color: #F67171;
+  }
+.upperNavbarContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+.upperDivHeadingContainer{
+    font-size: 1.2rem;
+}
