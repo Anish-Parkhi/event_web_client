@@ -1,0 +1,79 @@
+.eventInnerMainContainer {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.upperWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.eventInfoInnerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.eventNameText {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.locationText {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.eventHostText {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.eventOrganizerText {
+  font-size: 1rem;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+
+.tag {
+  background-color: #eaeaea;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border-radius: 0.5px solid gray;
+}
+
+.bookButtonContainer {
+  background-color: #f67171;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  width: 40%;
+  border-radius: 0.3rem;
+  margin-top: 2.5rem;
+}
+
+.imageContainer {
+  max-height: 40rem; /* Adjust the value as needed */
+  overflow: hidden; /* This ensures that the image doesn't overflow its container */
+}
+
+.eventInfoInnerContainerImage {
+  width: auto; /* Ensure the image takes the full width of its container */
+  height: auto; /* Allow the image to adjust its height proportionally */
+  border-radius: 0.4rem;
+  object-fit: contain; /* This ensures the image covers the container without stretching */
+  max-height: 20rem;
+}
+
+.eventDescriptionContainer {
+  margin-top: 2rem;
+}

@@ -1,11 +1,24 @@
 import TextField from '@mui/material/TextField';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import apiLink from '../../constant/api';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
 import styles from './Home.module.css';
 
-const data = [1, 2, 3, 4];
 
 function Home() {
+  const [apidata, setApiData] = useState(null);
+
+
+  useEffect(() => {
+    axios
+      .get(`${apiLink}/event`)
+      .then((res) => setApiData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(apidata)
   return (
     <div className={styles.homeMainContainer}>
       <Navbar />
@@ -26,8 +39,8 @@ function Home() {
         </div>
       </div>
       <div className={styles.cardWrapperContainer}>
-        {data.map((item) => {
-          return <Card key={item} />;
+        {apidata?.map((item) => {
+          return <Card eventInfo={item} event_id={item.event_id} venue_name={item.venue_name} event_date={item.event_date} event_name={item.event_name} key={item.event_id} />;
         })}
       </div>
     </div>
