@@ -5,7 +5,6 @@ import apiLink from '../../constant/api';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
 import styles from './Home.module.css';
-import { useAuth } from '../../context/AuthProvider';
 
 function Home() {
   const [apidata, setApiData] = useState(null);
@@ -35,9 +34,6 @@ function Home() {
       setApiData(originalData);
     }
   }, [mostPoularSelected, originalData]);
-
-  const auth = useAuth();
-  console.log(auth.token)
   return (
     <div className={styles.homeMainContainer}>
       <Navbar />

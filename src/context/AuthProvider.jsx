@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const navigate = useNavigate();
-
+  
   const logOut = () => {
     setUser(null);
     setToken('');

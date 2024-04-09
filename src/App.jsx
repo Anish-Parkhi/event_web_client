@@ -16,7 +16,7 @@ function App() {
           <Route path="/user/signup" element={<SignUp />} />
           <Route path="/user/signin" element={<SignIn />} />
           <Route element={<PrivateRoute />}>
-            <Route index element={<Home />} />
+            <Route index path="/" element={<Home />} />
             <Route path="/eventInfo/:eventId" element={<EventInfo />} />
           </Route>
           <Route path="*" element={<NotFound />} />

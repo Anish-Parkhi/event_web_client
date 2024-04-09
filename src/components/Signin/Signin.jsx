@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import apiLink from '../../constant/api';
 
 function Copyright(props) {
@@ -43,15 +43,15 @@ export default function SignIn() {
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post(`${apiLink}/user/signin`, userData)
       .then((res) => {
         if (res.data.msg === 'user signed in successfully') {
+          console.log('user logged in successfully');
           localStorage.setItem('token', res.data.token);
-          navigate('/');
+          window.location.href = '/';
         } else if (res.data.msg === 'User doesnt exists') {
           alert('User doesnt exists');
         } else {
