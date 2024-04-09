@@ -1,21 +1,27 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home/Home';
-import Signin from './components/Signin/SignIn';
+import NotFound from './components/Error/NotFound';
 import EventInfo from './components/Event/EventInfo';
+import PrivateRoute from './components/HOC/PrivateRoute';
+import Home from './components/Home/Home';
+import { default as SignIn } from './components/Signin/SignIn';
 import SignUp from './components/Signup/SignUp';
-import SignIn from './components/Signin/SignIn';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path='/eventInfo/:eventId' element={<EventInfo />}  />
-        <Route path='/user/signup' element={<SignUp />} />
-        <Route index path='/user/signin' element={<SignIn />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/user/signup" element={<SignUp />} />
+          <Route path="/user/signin" element={<SignIn />} />
+          <Route element={<PrivateRoute />}>
+            <Route index element={<Home />} />
+            <Route path="/eventInfo/:eventId" element={<EventInfo />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

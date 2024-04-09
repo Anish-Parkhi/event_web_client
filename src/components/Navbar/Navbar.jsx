@@ -1,8 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthProvider';
 import styles from './Navbar.module.css';
 
 function Navbar() {
   const navigate = useNavigate();
+  const { logOut } = useAuth();
+  const handleLogout = () => {
+    logOut();
+  };
   return (
     <div>
       <div className={styles.upperNavbarContainer}>
@@ -14,7 +19,12 @@ function Navbar() {
         >
           Book My Event
         </div>
-        <div>Account</div>
+        <div style={{ display: 'flex', gap: '1rem' }}>
+          <div>Account</div>
+          <div style={{ cursor: 'pointer' }} onClick={handleLogout}>
+            Logout
+          </div>
+        </div>
       </div>
       <nav className={styles.navbarMainContainer}>
         <ul className={styles.navbarInnerListContainer}>
