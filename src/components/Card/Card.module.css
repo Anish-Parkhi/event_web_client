@@ -3,7 +3,7 @@
     flex-direction: column;
     border: 2px solid rgb(201, 201, 201);
     width: 30%;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 .infoMainContainer{
@@ -36,4 +36,10 @@
 }
 .viewMoreContainer:hover{
     background-color: #da6262;
+}
+.imageMainContainer{
+    max-height: 20rem;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }

@@ -14,6 +14,7 @@ function Card(props) {
   const navigate = useNavigate();
   return (
     <div className={styles.cardMainContainer}>
+    
       <img alt="poster" className={styles.imageMainContainer} src={poster} />
       <div className={styles.infoMainContainer}>
         <div>{event_name}</div>

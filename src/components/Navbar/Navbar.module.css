@@ -19,13 +19,14 @@
   cursor: pointer;
 }
 .navbarInnerListContainer li:hover {
-    color: #F67171;
-  }
-.upperNavbarContainer{
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem;
+  color: #f67171;
 }
-.upperDivHeadingContainer{
-    font-size: 1.2rem;
+.upperNavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+.upperDivHeadingContainer {
+  font-size: 1.2rem;
+  cursor: pointer;
 }

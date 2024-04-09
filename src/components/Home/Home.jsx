@@ -6,19 +6,36 @@ import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
 import styles from './Home.module.css';
 
-
 function Home() {
   const [apidata, setApiData] = useState(null);
-
+  const [mostPoularSelected, setmostPoularSelected] = useState(false);
+  const [originalData, setOriginalData] = useState(null);
 
   useEffect(() => {
     axios
       .get(`${apiLink}/event`)
-      .then((res) => setApiData(res.data))
+      .then((res) => {
+        setApiData(res.data);
+        setOriginalData(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(apidata)
+  const fetchPopularEvents = () => {
+    axios
+      .get(`${apiLink}/event/mostpopular`)
+      .then((res) => setApiData(res.data))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    if (mostPoularSelected) {
+      fetchPopularEvents();
+    } else {
+      setApiData(originalData);
+    }
+  }, [mostPoularSelected, originalData]);
+
+  console.log(mostPoularSelected);
   return (
     <div className={styles.homeMainContainer}>
       <Navbar />
@@ -32,7 +49,12 @@ function Home() {
         <div>
           <div>Filter by </div>
           <div className={styles.filterMainContiner}>
-            <li>Most popular</li>
+            <li
+              style={{ color: mostPoularSelected ? '#F67171' : 'black' }}
+              onClick={() => setmostPoularSelected((prev) => !prev)}
+            >
+              Most popular
+            </li>
             <li>This Week</li>
             <li>Latest</li>
           </div>
@@ -40,7 +62,16 @@ function Home() {
       </div>
       <div className={styles.cardWrapperContainer}>
         {apidata?.map((item) => {
-          return <Card eventInfo={item} event_id={item.event_id} venue_name={item.venue_name} event_date={item.event_date} event_name={item.event_name} key={item.event_id} />;
+          return (
+            <Card
+              eventInfo={item}
+              event_id={item.event_id}
+              venue_name={item.venue_name}
+              event_date={item.event_date}
+              event_name={item.event_name}
+              key={item.event_id}
+            />
+          );
         })}
       </div>
     </div>

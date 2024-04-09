@@ -1,10 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div>
       <div className={styles.upperNavbarContainer}>
-        <div className={styles.upperDivHeadingContainer} >Book My Event</div>
+        <div
+          className={styles.upperDivHeadingContainer}
+          onClick={() => {
+            navigate('/');
+          }}
+        >
+          Book My Event
+        </div>
         <div>Account</div>
       </div>
       <nav className={styles.navbarMainContainer}>

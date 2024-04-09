@@ -10,6 +10,11 @@ function EventInfo() {
   const data = location.state;
   console.log(data);
   console.log(eventId);
+  const date = new Date(data.event_date);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const formatedDate = `${day}/${month}/${year}`;
   return (
     <div className={styles.eventInfoMainContainer}>
       <Navbar />
@@ -21,19 +26,19 @@ function EventInfo() {
         </div>
 
           <div className={styles.eventInfoInnerContainer}>
-            <div className={styles.eventNameText}>Stand up comedy show</div>
+            <div className={styles.eventNameText}>{data.event_name}</div>
             <div className={styles.locationText}>
               <div style={{ display:"flex",alignContent: 'center' }}>
                 <LocationOnIcon />
-                <div>Oberoi, Mumbai</div>
+                <div>{data.address}</div>
               </div>
-              <div>25/05/24</div>
+              <div>{formatedDate}</div>
             </div>
-            <div className={styles.eventHostText} >Host: Anish Parkhi</div>
-            <div className={styles.eventOrganizerText}>Organizer: Batliwala & sons</div>
-            <div>Address: Oberoi, Nariman Point, Mumbai-30</div>
+            <div className={styles.eventHostText} >Host: {data.host_name}</div>
+            <div className={styles.eventOrganizerText}>Organizer: {data.name}</div>
+            <div>Address: {data.address}</div>
             <div className={styles.tagsContainer}>
-              <div className={styles.tag}>Comedy</div>
+              <div className={styles.tag}>{data.category}</div>
             </div>
             <button className={styles.bookButtonContainer}>Book Tickets</button>
           </div>
@@ -41,12 +46,7 @@ function EventInfo() {
         <div className={styles.eventDescriptionContainer}>
           <div style={{fontSize:"1.5rem"}} >Event description</div>
           <div className={styles.eventDescription}>
-            Comedy Galore is an electrifying stand-up comedy show packed with
-            non-stop laughter, featuring a lineup of hilarious comedians
-            delivering gut-busting jokes, outrageous anecdotes, and unexpected
-            twists. With spontaneous improvisation, surprise guests, and
-            interactive segments, this show guarantees an unforgettable evening
-            of side-splitting fun that leaves you craving more!
+            {data.event_description}
           </div>
         </div>
       </div>
