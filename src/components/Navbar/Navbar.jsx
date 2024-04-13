@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthProvider';
 import styles from './Navbar.module.css';
 
@@ -34,7 +34,12 @@ function Navbar() {
           <li>Magic shows</li>
         </ul>
         <ul className={styles.navbarInnerListContainer}>
-          <li className={styles.bookEventContiner}>Host events</li>
+          <li>
+            {' '}
+            <Link className={styles.bookEventContiner} to="/createevent">
+              Host events
+            </Link>{' '}
+          </li>
         </ul>
       </nav>
     </div>

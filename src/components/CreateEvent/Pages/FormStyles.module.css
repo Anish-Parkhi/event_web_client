@@ -1,0 +1,11 @@
+.eventInfoWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.eventBannerText{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}

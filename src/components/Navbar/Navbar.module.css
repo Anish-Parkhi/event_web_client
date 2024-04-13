@@ -14,6 +14,8 @@
 }
 .bookEventContiner {
   margin-right: 4rem;
+  color: #F67171;
+  text-decoration: none;
 }
 .navbarInnerListContainer li {
   cursor: pointer;
@@ -29,4 +31,5 @@
 .upperDivHeadingContainer {
   font-size: 1.2rem;
   cursor: pointer;
+  color: #F67171;
 }

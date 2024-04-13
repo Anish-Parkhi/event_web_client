@@ -5,11 +5,14 @@ import apiLink from '../../constant/api';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
 import styles from './Home.module.css';
+import { useEvent } from '../../context/CreateEventContext';
 
 function Home() {
   const [apidata, setApiData] = useState(null);
   const [mostPoularSelected, setmostPoularSelected] = useState(false);
   const [originalData, setOriginalData] = useState(null);
+  const event = useEvent();
+  console.log(event.eventData)
 
   useEffect(() => {
     axios
