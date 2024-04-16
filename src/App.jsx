@@ -6,11 +6,11 @@ import EventInfo from './components/Event/EventInfo';
 import HostEventProtectedRoute from './components/HOC/HostEventProtectedRoute';
 import PrivateRoute from './components/HOC/PrivateRoute';
 import Home from './components/Home/Home';
-import { default as SignIn } from './components/Signin/SignIn';
+import SignIn from './components/Signin/Signin';
 import SignUp from './components/Signup/SignUp';
 import AuthProvider from './context/AuthProvider';
 import EventProvider from './context/CreateEventContext';
-
+import BookTicket from './components/Booking/BookTicket';
 function App() {
   return (
     <BrowserRouter>
@@ -23,10 +23,11 @@ function App() {
               <Route index path="/" element={<Home />} />
               <Route path="/eventInfo/:eventId" element={<EventInfo />} />
             </Route>
-            <Route element={<HostEventProtectedRoute />}>
+            {/* <Route element={<HostEventProtectedRoute />}> */}
               <Route path="/createevent" element={<CreateEvent />} />
-            </Route>
+            {/* </Route> */}
             <Route path="*" element={<NotFound />} />
+            <Route path='/bookticket' element={<BookTicket />} />
           </Routes>
         </EventProvider>
       </AuthProvider>

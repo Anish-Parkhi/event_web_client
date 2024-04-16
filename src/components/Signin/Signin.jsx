@@ -40,18 +40,14 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
   const [userData, setUserData] = useState({});
-  const {setRole, role, user, setToken} = useAuth();
+  const {setRole, setToken} = useAuth();
   const navigate = useNavigate();
   const handleChange = (e) => {
-
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (event) => {
-
-    
-    
     event.preventDefault();
     axios
       .post(`${apiLink}/user/signin`, userData)
@@ -61,11 +57,7 @@ export default function SignIn() {
           localStorage.setItem('token', res.data.token);
           setRole(res.data.role);
           setToken(res.data.token)
-          console.log(res.data)
-          console.log(role)
-          console.log(user)
           navigate('/', {replace:true})
-          // window.location.href = '/';
         } else if (res.data.msg === 'User doesnt exists') {
           alert('User doesnt exists');
         } else {

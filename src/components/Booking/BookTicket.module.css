@@ -1,0 +1,76 @@
+.bookTicketWrapper{
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #F67171;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.bookTicketHeaderText{
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.eventInfoContainer{
+    padding: 1rem;
+}
+
+.addTicketsContainer{
+    padding: 0.5rem;
+}
+
+.ticketTypeSelectionContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+
+}
+
+.ticketsCounterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem;
+    background-color: #F8F8F8;
+    color: black;
+    width: 40%;
+    margin: auto;
+    margin-top: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.selectBoxContainer{
+    padding: 0.3rem;
+    margin: auto;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.bookTicketButtonContainer{
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 0.4rem;
+    margin-top: 0.5rem;
+    width: 26%;
+    font-size: 1rem;
+}
+.eventInfoContainer{
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.concertImage{
+    width: 25%;
+}
