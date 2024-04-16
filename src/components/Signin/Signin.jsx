@@ -12,8 +12,11 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiLink from '../../constant/api';
+import { useAuth } from '../../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
+  
   return (
     <Typography
       variant="body2"
@@ -37,13 +40,18 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
   const [userData, setUserData] = useState({});
-
+  const {setRole, role, user, setToken} = useAuth();
+  const navigate = useNavigate();
   const handleChange = (e) => {
+
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (event) => {
+
+    
+    
     event.preventDefault();
     axios
       .post(`${apiLink}/user/signin`, userData)
@@ -51,7 +59,13 @@ export default function SignIn() {
         if (res.data.msg === 'user signed in successfully') {
           console.log('user logged in successfully');
           localStorage.setItem('token', res.data.token);
-          window.location.href = '/';
+          setRole(res.data.role);
+          setToken(res.data.token)
+          console.log(res.data)
+          console.log(role)
+          console.log(user)
+          navigate('/', {replace:true})
+          // window.location.href = '/';
         } else if (res.data.msg === 'User doesnt exists') {
           alert('User doesnt exists');
         } else {
