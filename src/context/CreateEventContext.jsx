@@ -13,7 +13,7 @@ const EventProvider = ({ children }) => {
     address: '',
     event_name: '',
     event_description: '',
-    event_date: '',
+    event_date: Date.now(),
     category: '',
   });
 

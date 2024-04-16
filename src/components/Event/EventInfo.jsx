@@ -5,11 +5,8 @@ import Navbar from '../Navbar/Navbar';
 import styles from './EventInfo.module.css';
 
 function EventInfo() {
-  const { eventId } = useParams();
   const location = useLocation();
   const data = location.state;
-  console.log(data);
-  console.log(eventId);
   const date = new Date(data.event_date);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

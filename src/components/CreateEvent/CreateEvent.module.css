@@ -3,58 +3,78 @@
   margin: auto;
   border: 2px solid #d9d9d9;
   border-radius: 2px;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
 }
 
 .eventsInnerWrapper {
   padding: 2rem;
 }
 
-.upperPosterText{
-    text-align: center;
-    color: white;
-    background-color: #F67171;
-    font-size: 1.4rem;
-    padding: 1rem;
+.upperPosterText {
+  text-align: center;
+  color: white;
+  background-color: #f67171;
+  font-size: 1.4rem;
+  padding: 1rem;
 }
 
-.eventsImageContainer{
-    width: 5%;
-    padding: 1rem;
-    align-self: center;
-    text-align: center;
-    margin: auto;
+.eventsImageContainer {
+  width: 5%;
+  padding: 1rem;
+  align-self: center;
+  text-align: center;
+  margin: auto;
 }
 
-.prevButtonContainer{
-    width: 100%;
+.prevButtonContainer {
+  width: 100%;
 }
 
-.buttonMainContainer{
-    display: flex;
-    gap: 2rem;
-    width: 80%;
-    align-items: center;
-    margin: auto;
-    justify-content: center;
+.buttonMainContainer {
+  display: flex;
+  gap: 2rem;
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
 }
 
-.buttonContainer{
-    padding: 0.8rem;
-    color: white;
-    background-color: #F67171;
-    border: none;
-    border-radius: 0.2rem;
-    width: 80%;
-    flex-basis: 20%;
-    align-self: center;
-    justify-content: space-around;
-    font-size: 1rem;
-    margin-top: 1rem;
+.buttonContainer {
+  padding: 0.8rem;
+  color: white;
+  background-color: #f67171;
+  border: none;
+  border-radius: 0.2rem;
+  width: 80%;
+  flex-basis: 20%;
+  align-self: center;
+  justify-content: space-around;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-.eventsInnerWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items:center ;
+.createEventButtonContainer {
+  padding: 0.8rem;
+  color: white;
+  background-color: #f67171;
+  border: none;
+  border-radius: 0.2rem;
+  width: 30%;
+  flex-basis: 20%;
+  align-self: center;
+  justify-content: space-around;
+  font-size: 1rem;
+  margin: auto;
 }
 
+.eventsInnerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookButtonContainer{
+  margin-bottom: 2rem;
+  display: flex;
+}

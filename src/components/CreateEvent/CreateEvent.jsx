@@ -1,5 +1,8 @@
+import axios from 'axios';
 import { useState } from 'react';
 import calenderImage from '../../assets/calendar.png';
+import apiLink from '../../constant/api';
+import { useEvent } from '../../context/CreateEventContext';
 import Navbar from '../Navbar/Navbar';
 import styles from './CreateEvent.module.css';
 import First from './Pages/First';
@@ -18,10 +21,25 @@ function CreateEvent() {
       setCurrentPage((prev) => prev - 1);
     }
   };
+  const { eventData } = useEvent();
+  console.log(eventData);
+
+  const handleCreateEvent = () => {
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvdGFyeUBnbWFpbC5jb20iLCJyb2xlIjoib3JnYW5pemVyIiwiaWF0IjoxNzEzMjE1Mzg0fQ.LNe4g72stBCty91AfnrnUcnOebm-E2qfl_G9jre6uM4';
+    const config = {
+      headers: {
+        Authorization: token,
+      },
+    };
+    const apiCall = () => {
+      axios.post(`${apiLink}/admin/createevent`, eventData, config);
+    };
+    apiCall();
+  };
   return (
     <div>
       <Navbar />
-      <div className={styles.createEventMainContiner}>Host Event</div>
       <div className={styles.formWrapperContainer}>
         <div style={{ width: '100%', display: 'flex' }}>
           <img className={styles.eventsImageContainer} src={calenderImage} />
@@ -53,6 +71,18 @@ function CreateEvent() {
               Next
             </button>
           </div>
+        </div>
+        <div
+          className={styles.bookButtonContainer}
+          style={{ display: 'flex', flexDirection: 'row' }}
+        >
+          <button
+            disabled={eventData.capacity ? true : false}
+            onClick={handleCreateEvent}
+            className={styles.createEventButtonContainer}
+          >
+            Create Event
+          </button>
         </div>
       </div>
     </div>

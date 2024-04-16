@@ -9,3 +9,8 @@
     margin-bottom: 1rem;
     font-size: 1.4rem;
 }
+
+.datepickerContainer{
+    padding: 1.2rem;
+    width: 82%;
+}
