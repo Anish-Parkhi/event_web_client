@@ -1,0 +1,64 @@
+.myBookingsWrapper{
+    padding: 2rem;
+}
+
+.myRegistrationsText{
+    font-size: 0.8rem;
+}
+
+.myRegistrationsText{
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.myBookingsMainCotnainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.4rem;
+    background-color: #F67171;
+    color: black;
+    padding: 1.4rem;
+    border-radius: 0.4rem;
+    width: 80%;
+    margin: auto;
+}
+
+.eventInfoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.eventVenueContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+}
+
+.ticketClassContainer{
+    background-color: black;
+    color: white;
+    align-items: center;
+    padding: 2rem;
+    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 0.5rem;
+}
+
+.cancelTicketButton{
+    align-self: flex-end;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: white;
+    color: red;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.imageContainer{
+    width: 10%;
+}

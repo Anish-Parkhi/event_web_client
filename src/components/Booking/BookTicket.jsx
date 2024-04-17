@@ -46,8 +46,8 @@ function BookTicket() {
       .post(`${apiLink}/ticket/bookticket`, data, config)
       .then((res) => {
         console.log(res.data);
-        if (res.data === 'Ticket booked successfully') {
-          navigate('/bookingConfirmation', { replace: true });
+        if (res.data.msg === 'Ticket booked successfully') {
+          navigate('/bookingConfirmation');
         }
       })
       .catch((err) => console.log(err));

@@ -36,6 +36,9 @@ function Navbar() {
         <ul className={styles.navbarInnerListContainer}>
           <li>
             {' '}
+            <Link className={styles.bookEventContiner} to="/mybookings">
+              My Bookings
+            </Link>
             <Link className={styles.bookEventContiner} to="/createevent">
               Host events
             </Link>{' '}

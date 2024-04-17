@@ -6,15 +6,12 @@ import NotAuthorized from '../../utils/NotAuthorized';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
 import styles from './Home.module.css';
-import { useAuth } from '../../context/AuthProvider';
 
 function Home() {
   const [apidata, setApiData] = useState(null);
   const [mostPoularSelected, setmostPoularSelected] = useState(false);
   const [originalData, setOriginalData] = useState(null);
-  const [isAuthorized, setIsAuthorized] = useState(false);
-  const auth = useAuth()
-  console.log(auth)
+  const [isAuthorized, setIsAuthorized] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
     const fetchEventData = () => {
