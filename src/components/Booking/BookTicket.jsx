@@ -3,9 +3,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import axios from 'axios';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assets/concert.jpg';
-import  apiLink  from '../../constant/api';
+import apiLink from '../../constant/api';
 import { useAuth } from '../../context/AuthProvider';
 import Navbar from '../Navbar/Navbar';
 import styles from './BookTicket.module.css';
@@ -16,6 +16,7 @@ function BookTicket() {
   const [ticketCount, setTicketCount] = useState(1);
   const [ticketType, setTicketType] = useState('Regular');
   const { token } = useAuth();
+  const navigate = useNavigate();
   //   const day = eventData.event_date.getDate();
   //   const month = eventData.event_date.getMonth() + 1;
   //   const year = eventData.event_date.getFullYear();
@@ -39,15 +40,16 @@ function BookTicket() {
         Authorization: token,
       },
     };
-    const eventId = eventData.event_id
+    const eventId = eventData.event_id;
     const data = { eventId, ticketType };
     axios
       .post(`${apiLink}/ticket/bookticket`, data, config)
-      .then((res) =>{ console.log(res.data) 
-            if(res.data === 'Ticket booked successfully'){
-                alert('Ticket Booked successfully')
-            }
-    })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data === 'Ticket booked successfully') {
+          navigate('/bookingConfirmation', { replace: true });
+        }
+      })
       .catch((err) => console.log(err));
   };
 

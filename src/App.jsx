@@ -11,6 +11,7 @@ import SignUp from './components/Signup/SignUp';
 import AuthProvider from './context/AuthProvider';
 import EventProvider from './context/CreateEventContext';
 import BookTicket from './components/Booking/BookTicket';
+import ConfirmBooking from './components/Booking/ConfirmBooking';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
             {/* </Route> */}
             <Route path="*" element={<NotFound />} />
             <Route path='/bookticket' element={<BookTicket />} />
+            <Route path='/bookingConfirmation' element={<ConfirmBooking />} />
           </Routes>
         </EventProvider>
       </AuthProvider>
