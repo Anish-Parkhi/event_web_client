@@ -8,27 +8,27 @@ import Navbar from '../Navbar/Navbar';
 import styles from './MyBookings.module.css';
 
 function MyBookings() {
-  const [apiData, setApiData] = useState(null);
+  const [apiData, setApiData] = useState([]);
   const { token } = useAuth();
   const config = {
     headers: {
       Authorization: token,
     },
   };
+  
   useEffect(() => {
     axios
       .get(`${apiLink}/event/myevents`, config)
       .then((res) => setApiData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  const navigate = useNavigate();
-  console.log(apiData);
 
+  const navigate = useNavigate();
+  
   const handleCancelTicket = (ticketId) => {
-    const requestData = { ticketId };
     axios
       .delete(`${apiLink}/ticket/cancelticket`, {
-        data: requestData,
+        data: { ticketId },
         headers: config.headers,
       })
       .then((res) => {
@@ -38,14 +38,15 @@ function MyBookings() {
       .catch((err) => console.log(err));
   };
 
-  console.log(apiData);
   return (
     <div>
       <Navbar />
       <div className={styles.myBookingsWrapper}>
         <div className={styles.myRegistrationsText}>My Registrations</div>
-        {apiData?.map((item, index) => {
-          return (
+        {apiData.length === 0 ? (
+          <div>You are not registered for any event</div>
+        ) : (
+          apiData.map((item, index) => (
             <div key={index}>
               <div className={styles.myBookingsMainCotnainer}>
                 <img
@@ -65,11 +66,10 @@ function MyBookings() {
                     Host: {item.host_name}
                   </div>
                   <div className={styles.organizerText}>
-                    {' '}
-                    Organizer: Batliwala & sons
+                    Organizer: {item.organizer_name}
                   </div>
                   <div className={styles.addressContainer}>
-                    Address: {item.venue_name}
+                    Address: {item.venue_address}
                   </div>
                 </div>
                 <div className={styles.ticketClassContainer}>
@@ -84,8 +84,8 @@ function MyBookings() {
                 </button>
               </div>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     </div>
   );

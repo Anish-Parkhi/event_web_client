@@ -15,7 +15,6 @@ function First() {
   useEffect(() => {
     eventData.event_date = formattedDate;
   }, [formattedDate, eventData]);
-  console.log(eventData);
   return (
     <div>
       <div className={styles.eventBannerText}>Event Details</div>

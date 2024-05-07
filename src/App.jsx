@@ -12,6 +12,7 @@ import SignIn from './components/Signin/Signin';
 import SignUp from './components/Signup/SignUp';
 import AuthProvider from './context/AuthProvider';
 import EventProvider from './context/CreateEventContext';
+import EventConfirm from './components/CreateEvent/EventConfirm';
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/bookingConfirmation" element={<ConfirmBooking />} />
             <Route path="/mybookings" element={<MyBookings />} />
             <Route path="/cancelconfimation" element={<CancelConfirmation />} />
+            <Route path='/eventcreationconfirmation' element={<EventConfirm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </EventProvider>
